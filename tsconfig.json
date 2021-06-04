@@ -1,0 +1,45 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "jsx": "react",
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "module": "commonjs",
+        "target": "es5",
+        "baseUrl": "./",
+        "importHelpers": true,
+        "noUnusedLocals": true,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "declaration": false,
+        "lib": ["dom", "es2017"],
+        "moduleResolution": "node",
+        "paths": {
+            "src/*": ["./src/*"],
+            "@api/*": ["./src/api/*"],
+            "@icons/*": ["./src/assets/icons/*"],
+            "@images/*": ["./src/assets/images/*"],
+            "@components/*": ["./src/components/*"],
+            "@components": ["src/components/index.js"],
+            "@pages/*": ["./src/pages/*"],
+            "@pages": ["./src/pages/index.ts"],
+            "@types/*": ["./src/types/*"],
+            "@store/*": ["./src/store/*"],
+            "@store/": ["./src/store/index.ts"],
+            "@webpack/*": ["./webpack/*"]
+        },
+        "typeRoots": ["src/types/**/*.d.ts", "node_modules/@types"]
+    },
+    "include": ["src", "./node_modules/@types"],
+    "exclude": [
+        "**/*.js",
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+    ]
+}

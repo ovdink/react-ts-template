@@ -1,0 +1,77 @@
+{
+    "name": "react-ts-template",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --env production",
+        "start": "webpack serve --hot-only --open --env development"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ovdink/react-ts-template.git"
+    },
+    "keywords": [],
+    "author": "HTE",
+    "license": "ISC",
+    "homepage": "https://github.com/ovdink/react-ts-template#readme",
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "7.14.3",
+        "@babel/preset-env": "7.14.4",
+        "@babel/preset-react": "7.13.13",
+        "@babel/preset-typescript": "7.13.0",
+        "@emotion/babel-plugin": "11.3.0",
+        "@types/react": "17.0.9",
+        "@types/react-dom": "17.0.6",
+        "@typescript-eslint/eslint-plugin": "4.26.0",
+        "@typescript-eslint/parser": "4.26.0",
+        "babel-loader": "8.2.2",
+        "clean-webpack-plugin": "4.0.0-alpha.0",
+        "css-loader": "5.2.6",
+        "eslint": "7.27.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-config-standard": "16.0.3",
+        "eslint-plugin-import": "2.23.4",
+        "eslint-plugin-prettier": "3.4.0",
+        "eslint-plugin-react": "7.24.0",
+        "eslint-plugin-react-hooks": "4.2.0",
+        "file-loader": "6.2.0",
+        "html-webpack-plugin": "5.3.1",
+        "husky": "6.0.0",
+        "mini-css-extract-plugin": "1.6.0",
+        "prettier": "2.3.0",
+        "webpack": "5.38.1",
+        "webpack-cli": "4.7.0",
+        "webpack-dev-server": "3.11.2"
+    },
+    "dependencies": {
+        "@emotion/react": "11.4.0",
+        "@emotion/styled": "11.3.0",
+        "axios": "0.21.1",
+        "history": "5.0.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "typescript": "4.3.2"
+    },
+    "engines": {
+        "node": ">=14.17.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm-run-all lint:*"
+        }
+    }
+}
