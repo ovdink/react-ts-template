@@ -13,7 +13,7 @@ module.exports = {
     entry: './src/index.tsx',
     output: {
         publicPath: '/',
-        path: path.join(__dirname, '../dist'),
+        path: path.join(__dirname, '../build'),
         filename: 'bundle.js',
     },
     resolve: {
@@ -50,6 +50,6 @@ module.exports = {
                 collapseWhitespace: isProd,
             },
         }),
-        new CopyPlugin([{ from: './src/assets', to: 'static' }]),
+        // new CopyPlugin([{ from: './src/assets', to: 'static' }]),
     ],
 };
