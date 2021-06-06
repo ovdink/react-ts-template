@@ -7,9 +7,9 @@
         "noImplicitThis": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "module": "commonjs",
+        "module": "es6",
         "target": "es5",
-        "baseUrl": "./",
+        "baseUrl": "./src",
         "importHelpers": true,
         "noUnusedLocals": true,
         "strict": true,
@@ -20,26 +20,18 @@
         "lib": ["dom", "es2017"],
         "moduleResolution": "node",
         "paths": {
-            "src/*": ["./src/*"],
-            "@api/*": ["./src/api/*"],
-            "@icons/*": ["./src/assets/icons/*"],
-            "@images/*": ["./src/assets/images/*"],
-            "@components/*": ["./src/components/*"],
-            "@components": ["src/components/index.js"],
-            "@pages/*": ["./src/pages/*"],
-            "@pages": ["./src/pages/index.ts"],
-            "@types/*": ["./src/types/*"],
-            "@store/*": ["./src/store/*"],
-            "@store/": ["./src/store/index.ts"],
-            "@webpack/*": ["./webpack/*"]
+            "src/*": ["*"],
+            "@api/*": ["api/*"],
+            "@icons/*": ["assets/icons/*"],
+            "@images/*": ["assets/images/*"],
+            "@components/*": ["components/*"],
+            "@pages/*": ["pages/*"],
+            "@types/*": ["types/*"],
+            "@store/*": ["store/*"],
+            "@webpack/*": ["config/webpack/*"]
         },
         "typeRoots": ["src/types/**/*.d.ts", "node_modules/@types"]
     },
     "include": ["src", "./node_modules/@types"],
-    "exclude": [
-        "**/*.js",
-        "node_modules",
-        "**/*.spec.ts",
-        "**/*.spec.tsx",
-    ]
+    "exclude": ["node_modules", "**/*.js", "**/*.spec.ts", "**/*.spec.tsx"]
 }
