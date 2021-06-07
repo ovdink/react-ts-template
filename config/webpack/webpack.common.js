@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 const CopyPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
@@ -33,23 +35,44 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
-                use: 'file-loader',
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: '[name].[ext]?[hash]',
+                    esModule: false,
+                },
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.woff(2)?(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: '[name].[ext]?[hash]',
+                    mimeType: 'application/font-woff',
+                    esModule: false,
+                },
+            },
+            {
+                test: /\.(eot|ttf|otf||wav|mp3)(\?.*)?$/,
                 loader: 'file-loader',
+                options: {
+                    esModule: false,
+                },
             },
         ],
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         new MiniCssExtractPlugin(),
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'build/**/*')],
+        }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
             minify: {
                 collapseWhitespace: isProd,
             },
         }),
-        // new CopyPlugin([{ from: './src/assets', to: 'static' }]),
+        new CopyPlugin({ patterns: [{ from: './src/assets', to: 'static' }] }),
     ],
 };
